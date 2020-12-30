@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Unless this is Ubuntu Core (probably a kiosk), disable the daemon
+if ! grep -q snap_core= /proc/cmdline; then
+  snapctl stop --disable $SNAP_NAME.daemon
+fi
+
